@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2fcf297a49c84714287f09e0d3783c2e
+guid: 44e000532cf92854d878ce4ef9f34764
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -128,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk_0
+      name: morrendo_0
       rect:
         serializedVersion: 2
-        x: 27
+        x: 4
         y: 0
-        width: 55
-        height: 99
+        width: 84
+        height: 82
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d794dfeae29bfc4bae3e3d44384ff3e
-      internalID: -464625289
+      spriteID: 0d69a15dd9d7b404e81f3c1e15096f43
+      internalID: 1448599210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_1
+      name: morrendo_1
       rect:
         serializedVersion: 2
-        x: 158
+        x: 137
         y: 0
-        width: 57
-        height: 99
+        width: 89
+        height: 75
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba962d07271ccd64f870e5c8879fd211
-      internalID: -1415866554
+      spriteID: 3547a46618377c045a131d4637f592f0
+      internalID: 5731244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_2
+      name: morrendo_2
       rect:
         serializedVersion: 2
-        x: 280
+        x: 262
         y: 0
-        width: 65
-        height: 101
+        width: 90
+        height: 70
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8d03ebf023385449a69e5f66e6289fa
-      internalID: -1230251574
+      spriteID: 058320aa08cd2a34c9b878baeee8cda0
+      internalID: 519870130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_3
+      name: morrendo_3
       rect:
         serializedVersion: 2
-        x: 408
+        x: 395
         y: 0
-        width: 70
-        height: 100
+        width: 87
+        height: 68
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78c0d94d15d41c044a780f1526340ab3
-      internalID: -536870516
+      spriteID: 9930c95a04da7b840ae368bbd5ff75f3
+      internalID: -385335504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_4
+      name: morrendo_4
       rect:
         serializedVersion: 2
-        x: 535
+        x: 528
         y: 0
-        width: 60
-        height: 99
+        width: 92
+        height: 30
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,20 +226,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03fb97c2363fb824cb67617c489a06b6
-      internalID: -1813630389
+      spriteID: cb496d3d50a05184a8371646f56e298b
+      internalID: -1670789332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_5
+      name: morrendo_5
       rect:
         serializedVersion: 2
-        x: 664
+        x: 660
         y: 0
-        width: 58
-        height: 100
+        width: 90
+        height: 28
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,50 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7da9405cba778c84fb6aa12e03652102
-      internalID: 168851907
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walk_6
-      rect:
-        serializedVersion: 2
-        x: 792
-        y: 0
-        width: 64
-        height: 101
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6774ce84e9a29b4aa4c79c3a7265701
-      internalID: -440332227
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walk_7
-      rect:
-        serializedVersion: 2
-        x: 922
-        y: 0
-        width: 70
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67d439c68fddf4d4f83492afa65400e8
-      internalID: 2132413991
+      spriteID: aed45720ee32d804db554d504f7fa87e
+      internalID: -951768615
       vertices: []
       indices: 
       edges: []
@@ -306,14 +264,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walk_5: 168851907
-      Walk_0: -464625289
-      Walk_4: -1813630389
-      Walk_6: -440332227
-      Walk_2: -1230251574
-      Walk_7: 2132413991
-      Walk_3: -536870516
-      Walk_1: -1415866554
+      morrendo_3: -385335504
+      morrendo_2: 519870130
+      morrendo_1: 5731244
+      morrendo_4: -1670789332
+      morrendo_5: -951768615
+      morrendo_0: 1448599210
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
