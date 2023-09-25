@@ -31,12 +31,14 @@ public class Inimigo : MonoBehaviour
         if (walkRight)
         {
             transform.eulerAngles = new Vector2(0, 0);
-            rig.velocity = Vector2.right * speed;
+            Vector2 direcao = new Vector2(speed, rig.velocity.y);
+            rig.velocity = direcao;
         }
         else
         {
             transform.eulerAngles = new Vector2(0, 180);
-            rig.velocity = Vector2.left * speed;
+            Vector2 direcao = new Vector2(-speed, rig.velocity.y);
+            rig.velocity = direcao;
         }
         
     }
