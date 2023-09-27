@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         float movimento = Input.GetAxis("Horizontal");
         rig.velocity = new Vector2(movimento * speed, rig.velocity.y);
 
-        if (movimento > 0)
+        if (movimento > 0 && !pulan)
         {
             anim.SetInteger("Transition", 1);
             transform.eulerAngles = new Vector3(0, 0, 0);
