@@ -7,14 +7,19 @@ public class Inimigo : MonoBehaviour
     public float speed;
     public float walkTime;
     public bool walkRight = true;
-    private float timer;
-   
 
+    public int health;
+    
+    private float timer;
+
+    private Animator anim;
     private Rigidbody2D rig;
+    
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -41,5 +46,17 @@ public class Inimigo : MonoBehaviour
             rig.velocity = direcao;
         }
         
+    }
+
+    public void Danage(int dng)
+    {
+        health += dng;
+        anim.SetTrigger("morta");
+
+        if (health <= 0)
+        {
+            //destroi o inimigo
+            Destroy(gameObject);
+        }
     }
 }
