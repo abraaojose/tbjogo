@@ -6,16 +6,39 @@ using UnityEngine;
 public class inimigo : MonoBehaviour
 {
     public float speed;
+    public float walkTime;
+
+    private float timer;
+    private bool walkRihgt = true;
+
+    private Rigidbody2D rig;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        rig = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        timer += Time.deltaTime;
+
+        if (timer >= walkTime)
+        {
+            walkRihgt = !walkRihgt;
+            timer = 0f;
+        }
+
+        if (walkRihgt)
+        {
+            transform.eulerAngles = new Vector2(0, 0);
+            rig.velocity = Vector2.right * speed;
+        }
+        else
+        {
+            transform.eulerAngles = new Vector2(0, 180);
+            rig.velocity = Vector2.left * speed;
+        }
     }
 }
