@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public float speed;
     public float jumpForce;
     public bool pulan;
+    private bool isFire;
     
     private Rigidbody2D rig;
     private Animator anim;
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
     {
         Move();
         Jump();
+        BowFire();
     }
 
     void Move()
@@ -37,13 +39,13 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
 
-        if (movimento < 0 && !pulan)
+        if (movimento < 0 && !pulan )
         {
             anim.SetInteger("Transition", 1);
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
-        if (movimento == 0 && !pulan)
+        if (movimento == 0 && !pulan && !isFire)
         {
             anim.SetInteger("Transition", 0);
         }
@@ -63,6 +65,24 @@ public class Player : MonoBehaviour
         }
             
     }
+
+
+    void BowFire()
+    {
+        StartCoroutine("Fire");
+    }
+
+    IEnumerator Fire()
+    {
+        if (Input.GetKeyDown((KeyCode.F)))
+        {
+            isFire = true;
+            anim.SetInteger("Transition", 3);
+            yield return new WaitForSeconds(0.8f);
+            anim.SetInteger("Transition",0);
+        }
+    }
+
     void OnTriggerStay2D(Collider2D coll)
     {
         if (coll.gameObject.layer == 8)
