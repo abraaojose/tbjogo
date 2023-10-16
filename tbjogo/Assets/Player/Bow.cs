@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class Bow : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    private Rigidbody2D rig;
+    public float speed; 
+    
     void Start()
     {
-        
+        rig = GetComponent<Rigidbody2D>();
+        Destroy(gameObject, 2f);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        rig.velocity = Vector2.right * speed;
     }
 }

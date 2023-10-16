@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,9 @@ public class Player : MonoBehaviour
     public float jumpForce;
     public bool pulan;
     private bool isFire;
-    
+    public GameObject Bow;
+    public Transform firePonit;
+
     private Rigidbody2D rig;
     private Animator anim;
 
@@ -23,9 +26,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
         Jump();
         BowFire();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     void Move()
@@ -78,6 +85,7 @@ public class Player : MonoBehaviour
         {
             isFire = true;
             anim.SetInteger("Transition", 3);
+            Instantiate(Bow, firePonit.position, firePonit.rotation);
             yield return new WaitForSeconds(0.8f);
             anim.SetInteger("Transition",0);
         }
