@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,13 @@ public class Inimigo : MonoBehaviour
     public float walkTime;
     public bool walkRight = true;
     private float timer;
-   
+    
+
+    public GameObject fogoDoInimigo;
+    public Transform localDoDisparo;
+
+    public float tempoMaximoEntreOsFogo;
+    public float tempoAtualDosFogos;
 
     private Rigidbody2D rig;
     // Start is called before the first frame update
@@ -39,5 +46,25 @@ public class Inimigo : MonoBehaviour
             rig.velocity = Vector2.left * speed;
         }
         
+    }
+
+    void Update()
+    {
+        AtirarFogo();
+    }
+
+
+    private void AtirarFogo()
+    {
+
+       
+        tempoAtualDosFogos -= Time.deltaTime;
+
+        if (tempoAtualDosFogos <= 0)
+        {
+            Instantiate(fogoDoInimigo, localDoDisparo.position, Quaternion.Euler(0f,0f,360f));
+            tempoAtualDosFogos = tempoMaximoEntreOsFogo;
+            
+        }
     }
 }
