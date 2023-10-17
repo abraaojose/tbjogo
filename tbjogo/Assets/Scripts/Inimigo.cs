@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,15 @@ public class Inimigo : MonoBehaviour
     
     private float timer;
 
+    public GameObject fogoDoInimigo;
+    public Transform localDoDisparo;
+        
+    public float velocidadeDoInimigo;
+
+    public float tempoMaximoEntreOsFogos;
+    public float tempoAtualDosFogos;
+    
+
     private Animator anim;
     private Rigidbody2D rig;
     
@@ -20,6 +30,11 @@ public class Inimigo : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+      AtirarFogos();  
     }
 
     // Update is called once per frame
@@ -57,6 +72,17 @@ public class Inimigo : MonoBehaviour
         {
             //destroi o inimigo
             Destroy(gameObject);
+        }
+    }
+
+    private void AtirarFogos()
+    {
+        tempoAtualDosFogos -= Time.deltaTime;
+
+        if(tempoAtualDosFogos <= 0)
+        {
+            Instantiate(fogoDoInimigo, localDoDisparo.position, Quaternion.Euler(0f, 0f, 360f));
+            tempoAtualDosFogos = tempoMaximoEntreOsFogos;
         }
     }
 }
