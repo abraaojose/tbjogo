@@ -11,17 +11,26 @@ public class inimigo : MonoBehaviour
 
     private float timer;
     private bool walkRihgt = true;
-    
+
     public int vida;
-    
-    private Animator anim;
+
+    private Animator anima;
     private Rigidbody2D rig;
+
+    public float ataque = 2.0f;
+    public int damage = 10;
+
+    private Transform player;
+    private Animator anim;
+    private bool isAttacking = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        anima = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -57,4 +66,28 @@ public class inimigo : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void Update()
+    {
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= ataque && !isAttacking)
+        {
+            // Iniciar a animação de ataque
+            anima.SetTrigger("Ataque"); // Acione o trigger de ataque
+            isAttacking = true;
+        }
+    }
+
+    public void PerformAttack()
+    {
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= ataque)
+        {
+
+        }
+    }
 }
+
+
