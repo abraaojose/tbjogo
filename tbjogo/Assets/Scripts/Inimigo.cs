@@ -81,8 +81,12 @@ public class Inimigo : MonoBehaviour
 
         if(tempoAtualDosFogos <= 0)
         {
-            Instantiate(fogoDoInimigo, localDoDisparo.position, Quaternion.Euler(0f, 0f, 360f));
+            GameObject clone = Instantiate(fogoDoInimigo, localDoDisparo.position, Quaternion.Euler(0f, 0f, 360f));
             tempoAtualDosFogos = tempoMaximoEntreOsFogos;
+            if (!walkRight)
+            {
+                clone.transform.Rotate(Vector3.up, 180);
+            }
         }
     }
 }

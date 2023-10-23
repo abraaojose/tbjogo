@@ -22,6 +22,6 @@ public class FogoDoInimigo : MonoBehaviour
 
     void MovimentarFogo()
     {
-       transform.Translate(Vector3.up * velocidadeDoFogo * Time.deltaTime);
+       transform.Translate(Vector3.right * velocidadeDoFogo * Time.deltaTime);
     }
 }
