@@ -499,7 +499,7 @@ MonoBehaviour:
   walkTime: 10
   walkRight: 0
   lineOfSite: 0.83
-  player: {fileID: 0}
+  player: {fileID: 2084235068}
 --- !u!95 &1042145588
 Animator:
   serializedVersion: 4
