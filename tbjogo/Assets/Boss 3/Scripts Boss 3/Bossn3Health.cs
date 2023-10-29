@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class Bossn3Health : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int health = 500;
 
-    // Update is called once per frame
-    void Update()
+    public GameObject deathEffect;
+
+    public bool isInvulnerable = false;
+
+    public void TakeDamage(int damage)
     {
+        if (isInvulnerable)
+            return;
+
+        health -= damage;
+
+        if(health <= 200)
+        {
+            GetComponent<Animator>().SetBool("Jump", true);
+        }
+
+
         
+
+        if(health <= 0)
+        {
+            Die();
+        }
     }
+    void Die()
+    {
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+    
+   
 }
