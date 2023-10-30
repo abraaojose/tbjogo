@@ -295,7 +295,7 @@ MonoBehaviour:
   speed: 12
   jumpForce: 11
   pulan: 0
-  Bow: {fileID: 7354517643388540296, guid: d86e79b0d7406414f8fd3389be011347, type: 3}
+  Bowprefab: {fileID: 7354517643388540296, guid: d86e79b0d7406414f8fd3389be011347, type: 3}
   firePonit: {fileID: 1901555206}
 --- !u!58 &262391413
 CircleCollider2D:
@@ -310,9 +310,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01, y: -0.27}
+  m_Offset: {x: -0.009999994, y: -0.3205444}
   serializedVersion: 2
-  m_Radius: 0.06
+  m_Radius: 0.054585867
 --- !u!1 &395739763
 GameObject:
   m_ObjectHideFlags: 0

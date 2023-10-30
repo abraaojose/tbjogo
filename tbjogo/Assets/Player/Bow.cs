@@ -10,7 +10,7 @@ public class Bow : MonoBehaviour
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        Invoke("EnableMovement", 0.6f); // Chama o método EnableMovement após 0.6 segundos
+        Invoke("EnableMovement", 0f); // Chama o método EnableMovement após 0.6 segundos
         Destroy(gameObject, 2f);
     }
 

@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public float jumpForce;
     public bool pulan;
     private bool isFire;
-    public GameObject Bow;
+    public GameObject Bowprefab;
     public Transform firePonit;
 
     private Rigidbody2D rig;
@@ -78,6 +78,13 @@ public class Player : MonoBehaviour
     {
         StartCoroutine("Fire");
     }
+    void fogo()
+    {
+        GameObject bow = Instantiate(Bowprefab, firePonit.position, firePonit.rotation);
+        Rigidbody2D rb = bow.GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.right * 11f;
+        Destroy(bow, 2f);
+    }
 
     IEnumerator Fire()
     {
@@ -85,12 +92,13 @@ public class Player : MonoBehaviour
         {
             isFire = true;
             anim.SetInteger("Transition", 3);
-            Instantiate(Bow, firePonit.position, firePonit.rotation);
+            Invoke("fogo", 0.5f);
             yield return new WaitForSeconds(0.8f);
             anim.SetInteger("Transition",0);
+            isFire = false;
         }
     }
-
+    
     void OnTriggerStay2D(Collider2D coll)
     {
         if (coll.gameObject.layer == 8)
