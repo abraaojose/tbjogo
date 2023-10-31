@@ -250,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203915434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.43, y: -1.98, z: 0}
+  m_LocalPosition: {x: 13.91, y: -2.07, z: 0}
   m_LocalScale: {x: 3.2222, y: 3.4401, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 1915439982}
   m_Layer: 0
   m_Name: Boss n3
-  m_TagString: Untagged
+  m_TagString: inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,7 +549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915439975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.52, y: -3.63, z: 0}
+  m_LocalPosition: {x: -6.06, y: -3.85, z: 0}
   m_LocalScale: {x: 7.0627275, y: 7.0627275, z: 7.0627275}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -625,6 +625,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df34c326763c3024fbff52126fcf2afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDamage: 20
+  enragedAttackDamage: 40
+  attackOffset: {x: 0, y: 0, z: 0}
+  attackRange: 1
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1915439983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,6 +644,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc467d23c4c60545b4a8c95274bfc14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 500
+  deathEffect: {fileID: 0}
+  isInvulnerable: 0
 --- !u!114 &1915439984
 MonoBehaviour:
   m_ObjectHideFlags: 0
