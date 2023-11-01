@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1994300465476463239}
   - component: {fileID: 7737040907493299393}
   m_Layer: 0
-  m_Name: FoguinhoAzul
+  m_Name: FoguinhoAzul 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 3608377266194464013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15.556297, y: 15.556297, z: 15.556297}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1858304301, guid: da33877ce04e1724d8469bac6d01838e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b445b6c7be0e5c40898f07276ba2454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeDoFogo: 10
+  velocidadeDoFogo: 60
   tempoDoFogo: 2.5
 --- !u!95 &7737040907493299393
 Animator:

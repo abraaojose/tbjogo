@@ -24,6 +24,8 @@ public class Inimigo : MonoBehaviour
 
     private Animator anim;
     private Rigidbody2D rig;
+
+    private bool attack;
     
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,7 @@ public class Inimigo : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(attack) return;
         timer += Time.deltaTime;
 
         if (timer >= walkTime)
@@ -77,16 +80,36 @@ public class Inimigo : MonoBehaviour
 
     private void AtirarFogos()
     {
-        tempoAtualDosFogos -= Time.deltaTime;
-
-        if(tempoAtualDosFogos <= 0)
+        if (!attack)
         {
-            GameObject clone = Instantiate(fogoDoInimigo, localDoDisparo.position, Quaternion.Euler(0f, 0f, 360f));
-            tempoAtualDosFogos = tempoMaximoEntreOsFogos;
-            if (!walkRight)
+            tempoAtualDosFogos -= Time.deltaTime;
+            
+            if(tempoAtualDosFogos <= 0)
             {
-                clone.transform.Rotate(Vector3.up, 180);
+                tempoAtualDosFogos = 0;
+                StartCoroutine(SequenciaDeAtaque());   
             }
         }
+        
+    }
+
+    IEnumerator SequenciaDeAtaque()
+    {
+        attack = true;
+        rig.velocity = Vector2.zero;
+        anim.Play("atacando");
+        yield return new WaitForSeconds(0.6f);
+        
+        GameObject clone = Instantiate(fogoDoInimigo, localDoDisparo.position, Quaternion.Euler(0f, 0f, 360f));
+        tempoAtualDosFogos = tempoMaximoEntreOsFogos;
+        if (!walkRight)
+        {
+            clone.transform.Rotate(Vector3.up, 180);
+        }
+        yield return new WaitForSeconds(0.1f);
+        anim.Play("andando");
+        attack = false;
+        StopCoroutine(SequenciaDeAtaque());
+
     }
 }
