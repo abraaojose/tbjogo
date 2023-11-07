@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public bool Estagio2;
     public bool Estagio3;
     public int jumps = 1;
+    public int vida = 3;
 
     private Rigidbody2D rig;
     private Animator anim;
@@ -151,6 +152,14 @@ public class Player : MonoBehaviour
         anim.SetInteger("Transition", 0);
         isFire = false;
         canFire = true; // Libera o disparo novamente
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Foguinho"))
+        {
+            vida--;
+        }
     }
 
     void OnTriggerStay2D(Collider2D coll)

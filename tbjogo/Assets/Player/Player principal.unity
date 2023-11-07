@@ -295,12 +295,13 @@ MonoBehaviour:
   speed: 12
   jumpForce: 15
   pulan: 0
-  Bowprefab: {fileID: 4567420282235198366, guid: 9b17953c4b32da34992360e4719d40ff, type: 3}
+  Bowprefab: {fileID: 2952990083790510544, guid: 81a72da61e2ed824f96b129b190bb0c7, type: 3}
   Bowprefab2: {fileID: 4614850928281655533, guid: c81a14020ddf1ac4788faf0f80bd7ef7, type: 3}
   firePonit: {fileID: 1901555206}
   Estagio2: 0
   Estagio3: 0
   jumps: 1
+  vida: 3
 --- !u!58 &262391413
 CircleCollider2D:
   m_ObjectHideFlags: 0
