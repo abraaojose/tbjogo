@@ -246,7 +246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262391406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.74, y: -1.55, z: 0}
+  m_LocalPosition: {x: -4.24, y: -1.55, z: 0}
   m_LocalScale: {x: 6.4924397, y: 6.4924397, z: 6.4924397}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -271,7 +271,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.38, y: 0.44}
+    oldSize: {x: 0.76, y: 0.69}
     newSize: {x: 0.28, y: 0.66}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -295,8 +295,12 @@ MonoBehaviour:
   speed: 12
   jumpForce: 15
   pulan: 0
-  Bowprefab: {fileID: 2952990083790510544, guid: 81a72da61e2ed824f96b129b190bb0c7, type: 3}
+  Bowprefab: {fileID: 4567420282235198366, guid: 9b17953c4b32da34992360e4719d40ff, type: 3}
+  Bowprefab2: {fileID: 4614850928281655533, guid: c81a14020ddf1ac4788faf0f80bd7ef7, type: 3}
   firePonit: {fileID: 1901555206}
+  Estagio2: 0
+  Estagio3: 0
+  jumps: 1
 --- !u!58 &262391413
 CircleCollider2D:
   m_ObjectHideFlags: 0
