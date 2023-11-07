@@ -37,6 +37,7 @@ public class Inimigo : MonoBehaviour
     void Update()
     {
       AtirarFogos();  
+      Danage();
     }
 
     // Update is called once per frame
@@ -66,15 +67,12 @@ public class Inimigo : MonoBehaviour
         
     }
 
-    public void Danage(int dng)
+    public void Danage()
     {
-        health += dng;
-        anim.SetTrigger("morta");
-
         if (health <= 0)
         {
-            //destroi o inimigo
-            Destroy(gameObject);
+            anim.SetTrigger("morta");
+            Destroy(gameObject, 1f);
         }
     }
 
@@ -91,6 +89,14 @@ public class Inimigo : MonoBehaviour
             }
         }
         
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            health-=1;
+            Debug.Log("Dano");
+        }
     }
 
     IEnumerator SequenciaDeAtaque()
@@ -112,4 +118,5 @@ public class Inimigo : MonoBehaviour
         StopCoroutine(SequenciaDeAtaque());
 
     }
+    
 }
