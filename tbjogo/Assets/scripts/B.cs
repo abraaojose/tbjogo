@@ -1,62 +1,94 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class B : MonoBehaviour
 {
-    //private Transform posicaoDoPlayer;
-
-    public float velocidadeDoInimigo;
+    private Transform posicaoDoPlayer;
     [SerializeField]
     private Transform alvo;
-    [SerializeField]
-    private float velocidadeMovimento;
+    
     [SerializeField]
     private Rigidbody2D rigidbody2D;
+    
+    [SerializeField] 
+    private SpriteRenderer spriteRenderer;
 
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    public float velocidadeDoInimigo;
 
+    [SerializeField] 
+    private Animation animator;
+
+    [SerializeField] 
+    private float distanciaMinima;
+    
+    [SerializeField] 
+    private float distanciaMaxinaAtaque;
+
+    [SerializeField] 
+    private float intervaloEntreAtaqueEmSegundos;
+
+    [SerializeField]
+    private float tempoEsperaProximoAtaque;
     // Start is called before the first frame update
     void Start()
     {
-        //posicaoDoPlayer = GameObject.FindGameObjectWithTag("Player").transform;
+        posicaoDoPlayer = GameObject.FindGameObjectWithTag("Player").transform;
+
+        this.tempoEsperaProximoAtaque = this.intervaloEntreAtaqueEmSegundos;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //SeguirPlayer();
+        SeguirPlayer();
+       
         Vector2 posicaoAlvo = this.alvo.position;
         Vector2 posicaoAtual = this.transform.position;
-        Vector2 direcao = posicaoAlvo - posicaoAtual;
-        direcao = direcao.normalized;
 
-        this.rigidbody2D.velocity = (this.velocidadeMovimento * direcao);
+        float distancia = Vector2.Distance(posicaoAtual, posicaoAlvo);
+        
+        if (distancia >= this.distanciaMinima){
+            //mover o inimigo
+            Vector2 direcao = posicaoAlvo - posicaoAtual;
+            direcao = direcao.normalized;
+            
+            
+            this.rigidbody2D.velocity = (this.velocidadeDoInimigo * direcao);
 
-        if (this.rigidbody2D.velocity.x > 0) {// direita
-            this.spriteRenderer.flipX = false;
-        }else if (this.rigidbody2D.velocity.x < 0) {//esquerda
-            this.spriteRenderer.flipX = true;
+            if (this.rigidbody2D.velocity.x > 0) {// direita
+                this.spriteRenderer.flipX = false;
+            }else if (this.rigidbody2D.velocity.x < 0) {//esquerda
+                this.spriteRenderer.flipX = true;
+            }
+
+            //this.animator.SetBool("atackk",true);
+        } else{
+           //para a movimentaçaõ
+           this.rigidbody2D.velocity = Vector2.zero; // (0.0)
         }
 
-    }
+        
 
-    //private void SeguirPlayer()
-    //{
-        //if (posicaoDoPlayer.gameObject != null)
-        //{
-            //transform.position = Vector2.MoveTowards(transform.position, posicaoDoPlayer.position,velocidadeDoInimigo * Time.deltaTime); 
-        //}
+    }   
+
+    private void SeguirPlayer()
+    {
+        if (posicaoDoPlayer.gameObject != null)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, posicaoDoPlayer.position,velocidadeDoInimigo * Time.deltaTime); 
+        }
         
     }
 
-    //private void Mover()
-    //{
-        //Vector2 posicaoDoPlayer = this.alvo.position;
-    //}
-//}
+    private void Mover()
+    {
+        Vector2 posicaoDoPlayer = this.alvo.position;
+    }
+}
     
     
 

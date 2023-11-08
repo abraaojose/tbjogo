@@ -473,7 +473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042145582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.75, y: -2.35, z: 0}
+  m_LocalPosition: {x: -9.71, y: -2.35, z: 0}
   m_LocalScale: {x: 0.55647933, y: 0.524206, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -512,11 +512,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1994d438378cb849b2130b5d94725e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeDoInimigo: 5
   alvo: {fileID: 1517997479}
-  velocidadeMovimento: 0
   rigidbody2D: {fileID: 1042145584}
   spriteRenderer: {fileID: 1042145585}
+  velocidadeDoInimigo: 2
+  animator: {fileID: 0}
+  distanciaMinima: 0
 --- !u!1 &1225180501
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +695,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517997476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2439488, y: -1.667165, z: 0}
+  m_LocalPosition: {x: 2.03, y: -3.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -737,7 +738,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1572179694
 GameObject:
   m_ObjectHideFlags: 0
