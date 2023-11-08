@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Inimigo : MonoBehaviour
@@ -26,18 +27,19 @@ public class Inimigo : MonoBehaviour
     private Rigidbody2D rig;
 
     private bool attack;
+    public TextMeshProUGUI vida;
     
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        vida.text = $"vida: {health}";
     }
 
     void Update()
     {
-      AtirarFogos();  
-      Danage();
+      AtirarFogos();
     }
 
     // Update is called once per frame
@@ -67,8 +69,11 @@ public class Inimigo : MonoBehaviour
         
     }
 
-    public void Danage()
+    public void Damage(int value)
     {
+        health -= value;
+        vida.text = $"vida: {health}";
+        
         if (health <= 0)
         {
             anim.SetTrigger("morta");
