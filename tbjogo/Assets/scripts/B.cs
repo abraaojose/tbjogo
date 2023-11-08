@@ -6,43 +6,58 @@ using UnityEngine.AI;
 
 public class B : MonoBehaviour
 {
-    private GameObject player;
+    //private Transform posicaoDoPlayer;
 
-    private NavMeshAgent navMesh;
-    private bool podeAtacar;
-    
+    public float velocidadeDoInimigo;
+    [SerializeField]
+    private Transform alvo;
+    [SerializeField]
+    private float velocidadeMovimento;
+    [SerializeField]
+    private Rigidbody2D rigidbody2D;
+
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
-        podeAtacar = true;
-        player = GameObject.FindWithTag("Player");
-        navMesh = GetComponent<NavMeshAgent>();
+        //posicaoDoPlayer = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        navMesh.destination = player.transform.position;
-        if (Vector3.Distance(transform.position, player.transform.position) < 1.5)
-        {
-            Atacar();
+        //SeguirPlayer();
+        Vector2 posicaoAlvo = this.alvo.position;
+        Vector2 posicaoAtual = this.transform.position;
+        Vector2 direcao = posicaoAlvo - posicaoAtual;
+        direcao = direcao.normalized;
+
+        this.rigidbody2D.velocity = (this.velocidadeMovimento * direcao);
+
+        if (this.rigidbody2D.velocity.x > 0) {// direita
+            this.spriteRenderer.flipX = false;
+        }else if (this.rigidbody2D.velocity.x < 0) {//esquerda
+            this.spriteRenderer.flipX = true;
         }
+
     }
 
-    void Atacar()
-    {
-        if (podeAtacar)
-        { 
-            StartCoroutine("TempoDeAtaque");
-            player.GetComponent<Player>().vida -= 40;
-        }
+    //private void SeguirPlayer()
+    //{
+        //if (posicaoDoPlayer.gameObject != null)
+        //{
+            //transform.position = Vector2.MoveTowards(transform.position, posicaoDoPlayer.position,velocidadeDoInimigo * Time.deltaTime); 
+        //}
+        
     }
-    IEnumerator TempoDeAtaque()
-    {
-        podeAtacar = false;
-        yield return new WaitForSeconds(1);
-        podeAtacar = true;
-    }
-}
+
+    //private void Mover()
+    //{
+        //Vector2 posicaoDoPlayer = this.alvo.position;
+    //}
+//}
+    
+    
 
 
