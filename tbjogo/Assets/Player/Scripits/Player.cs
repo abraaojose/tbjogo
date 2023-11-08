@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public bool Estagio3;
     public int jumps = 1;
     public int vida = 3;
+    public AudioSource Pulo;
+    public AudioSource tiro;
     
     public int maxHealth = 5;
     public int currentHealth;
@@ -99,6 +101,7 @@ public class Player : MonoBehaviour
                     rig.velocity = new Vector2(rig.velocity.x, 0); // Define a velocidade Y como zero para um pulo mais consistente
                     rig.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                     jumps--; // Decrementa o contador de pulos
+                    Pulo.Play();
                 }
             }
         }
@@ -122,6 +125,7 @@ public class Player : MonoBehaviour
         else // Personagem está voltado para a esquerda
         {
             rb.velocity = Vector2.left * 11f; // Bola de fogo vai para a esquerda
+            tiro.Play();
         }
 
         Destroy(bow, 2f);
