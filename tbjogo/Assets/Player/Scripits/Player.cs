@@ -171,7 +171,7 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Foguinho"))
+        if (collision.gameObject.CompareTag("FoguinhoAzul"))
         {
             Debug.Log("Morri");
             vida--;
