@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -17,20 +18,27 @@ public class Player : MonoBehaviour
     public bool Estagio3;
     public int jumps = 1;
     public int vida = 3;
+    
+    public int maxHealth = 5;
+    public int currentHealth;
+    public bool isdead;
+
+    public Text healthText;
 
     private Rigidbody2D rig;
     private Animator anim;
 
     void Start()
     {
+        currentHealth = maxHealth;
+        UpdateHealthUI();
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        Jump();
-        
+
         // Somente chama a função de disparo se estiver no estado Idle
         if (Input.GetKeyDown(KeyCode.F) && !isFire && anim.GetInteger("Transition") == 0)
         {
@@ -42,11 +50,17 @@ public class Player : MonoBehaviour
         {
             StartCoroutine("Fire2");
         }
+        Move();
+        
+        Jump();
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
-        Move();
+        if (isdead = true)
+        { 
+            dead();
+        }
     }
 
     void Move()
@@ -153,13 +167,32 @@ public class Player : MonoBehaviour
         isFire = false;
         canFire = true; // Libera o disparo novamente
     }
+    
 
-    private void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.gameObject.CompareTag("Foguinho"))
+        if (collision.gameObject.CompareTag("Foguinho"))
         {
+            Debug.Log("Morri");
             vida--;
+            currentHealth--;
+            UpdateHealthUI();
         }
+    }
+
+    void dead()
+    {
+        if (vida <= 0)
+        {
+            isdead = true;
+            anim.SetTrigger("Morte");
+            Destroy(gameObject, 0.7f);
+        }
+    }
+
+    void UpdateHealthUI()
+    {
+        healthText.text = currentHealth.ToString();
     }
 
     void OnTriggerStay2D(Collider2D coll)

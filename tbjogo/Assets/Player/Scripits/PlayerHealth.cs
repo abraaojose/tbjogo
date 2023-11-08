@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int maxHealth = 5;
+    public int currentHealth;
+
+    public Text healthText;
+
     void Start()
     {
-        
+        currentHealth = maxHealth;
+        UpdateHealthUI();
     }
 
-    // Update is called once per frame
-    void Update()
+    void UpdateHealthUI()
     {
-        
+        healthText.text = currentHealth.ToString();
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+        }
+        UpdateHealthUI();
     }
 }
